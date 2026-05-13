@@ -14,7 +14,7 @@ One downstream service starts failing. Callers wait, thread pools fill up, retri
 
 ## Why resily
 
-| Feature | opossum | resily |
+| Feature | Other library | resily |
 |---------|---------|--------|
 | Circuit breaker | ✅ | ✅ |
 | EventEmitter events | ✅ | ✅ |
@@ -34,7 +34,7 @@ One downstream service starts failing. Callers wait, thread pools fill up, retri
 | Health monitoring | ❌ | ✅ |
 | TypeScript first | ⚠️ types via @types | ✅ native |
 
-Comparison is about shipped features in this library vs [opossum](https://github.com/nodeshift/opossum); both are valid tools—pick based on what you need to configure and compose.
+Comparison is about shipped features in this library vs other library; both are valid tools—pick based on what you need to configure and compose.
 
 ## Installation
 

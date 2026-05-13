@@ -1,5 +1,5 @@
 /**
- * Example 02 — resily’s strategy model: swap breaking, reset, and failure detection without
+ * Example 02 — node-resily’s strategy model: swap breaking, reset, and failure detection without
  * forking the breaker core.
  *
  * Run: `npx ts-node examples/02-custom-strategies.ts`

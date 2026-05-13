@@ -1,20 +1,20 @@
-# resily
+# node-resily
 
 > Resilience patterns for Node.js microservices — circuit breaker, retry, timeout, and bulkhead with pluggable strategies.
 
-[![npm version](https://img.shields.io/npm/v/resily.svg)](https://www.npmjs.com/package/resily)
-[![npm downloads](https://img.shields.io/npm/dm/resily.svg)](https://www.npmjs.com/package/resily)
+[![npm version](https://img.shields.io/npm/v/node-resily.svg)](https://www.npmjs.com/package/node-resily)
+[![npm downloads](https://img.shields.io/npm/dm/node-resily.svg)](https://www.npmjs.com/package/node-resily)
 [![CI](https://github.com/astitva3110/resil/workflows/CI/badge.svg)](https://github.com/astitva3110/resil/actions)
 [![coverage](https://img.shields.io/badge/coverage-threshold_≥90%25-2ea44f)](https://github.com/astitva3110/resil/blob/main/jest.config.ts)
-[![license](https://img.shields.io/npm/l/resily.svg)](https://github.com/astitva3110/resil/blob/main/package.json)
+[![license](https://img.shields.io/npm/l/node-resily.svg)](https://github.com/astitva3110/resil/blob/main/package.json)
 
 ## The problem
 
 One downstream service starts failing. Callers wait, thread pools fill up, retries amplify load, and the next tier starts timing out. Microservice outages usually look like a slow cascade of pressure and backlogs—not a single switch flipping off.
 
-## Why resily
+## Why node-resily
 
-| Feature | Other library | resily |
+| Feature | Other library | node-resily |
 |---------|---------|--------|
 | Circuit breaker | ✅ | ✅ |
 | EventEmitter events | ✅ | ✅ |
@@ -39,7 +39,7 @@ Comparison is about shipped features in this library vs other library; both are 
 ## Installation
 
 ```bash
-npm install resily
+npm install node-resily
 ```
 
 If you use **NestJS decorators** (`@WithCircuitBreaker`, `@WithRetry`, `@WithTimeout`), install peers your app already needs: `@nestjs/common`, `@nestjs/core`, and `reflect-metadata`.
@@ -47,7 +47,7 @@ If you use **NestJS decorators** (`@WithCircuitBreaker`, `@WithRetry`, `@WithTim
 ## Quick start
 
 ```ts
-import { CircuitBreaker } from 'resily';
+import { CircuitBreaker } from 'node-resily';
 
 const breaker = new CircuitBreaker({ name: 'payments', timeoutMs: 3_000 });
 const receipt = await breaker.execute(() =>
@@ -72,7 +72,7 @@ const receipt = await breaker.execute(() =>
 ```
 
 ```ts
-import { CircuitBreaker } from 'resily';
+import { CircuitBreaker } from 'node-resily';
 
 const breaker = new CircuitBreaker({
   name: 'payment-service',
@@ -105,7 +105,7 @@ import {
   ConsecutiveFailureBreakingStrategy,
   ErrorRateBreakingStrategy,
   SlowCallBreakingStrategy,
-} from 'resily';
+} from 'node-resily';
 
 // 1. Consecutive failures (default is 5 — pass your own threshold)
 new ConsecutiveFailureBreakingStrategy(5);
@@ -131,7 +131,7 @@ Wire one in with `breakingStrategy` on `CircuitBreaker` options.
 Control how long the breaker stays **open** before a half-open probe is allowed.
 
 ```ts
-import { TimeBasedResetStrategy, ExponentialResetStrategy } from 'resily';
+import { TimeBasedResetStrategy, ExponentialResetStrategy } from 'node-resily';
 
 // Fixed delay (milliseconds)
 new TimeBasedResetStrategy(30_000);
@@ -156,7 +156,7 @@ import {
   CustomFailureDetector,
   CompositeFailureDetector,
   TimeoutError,
-} from 'resily';
+} from 'node-resily';
 
 class ValidationError extends Error {
   override name = 'ValidationError';
@@ -203,7 +203,7 @@ Set `failureDetectionStrategy` on the breaker options.
 ### Bring your own breaking strategy
 
 ```ts
-import type { BreakingStrategyContext, IBreakingStrategy } from 'resily';
+import type { BreakingStrategyContext, IBreakingStrategy } from 'node-resily';
 
 class MyBreakingStrategy implements IBreakingStrategy {
   afterInvoke(_durationMs: number): void {}
@@ -221,8 +221,8 @@ class MyBreakingStrategy implements IBreakingStrategy {
 There is **no** bundled exponential backoff class—you implement `IRetryStrategy` or paste a small helper. That keeps core dependency-free and avoids prescribing one backoff policy for every team.
 
 ```ts
-import { CircuitBreaker, Retry } from 'resily';
-import type { IRetryStrategy } from 'resily';
+import { CircuitBreaker, Retry } from 'node-resily';
+import type { IRetryStrategy } from 'node-resily';
 
 class ExponentialBackoffStrategy implements IRetryStrategy {
   constructor(
@@ -255,7 +255,7 @@ Retries run **around** the breaker: a failing call still counts as one breaker a
 ## Timeout
 
 ```ts
-import { Timeout } from 'resily';
+import { Timeout } from 'node-resily';
 
 const timeout = new Timeout(5_000);
 const report = await timeout.execute(() => reportService.buildQuarterly());
@@ -266,7 +266,7 @@ This helper races your promise against a timer. It does **not** call `AbortContr
 ## Bulkhead
 
 ```ts
-import { Bulkhead } from 'resily';
+import { Bulkhead } from 'node-resily';
 
 const searchBulkhead = new Bulkhead({ maxConcurrent: 8, maxQueueSize: 32 });
 const hits = await searchBulkhead.execute(() => searchService.query(q));
@@ -285,7 +285,7 @@ import {
   WithRetry,
   WithTimeout,
   ErrorRateBreakingStrategy,
-} from 'resily';
+} from 'node-resily';
 
 @Injectable()
 export class PaymentService {
@@ -307,7 +307,7 @@ export class PaymentService {
 ## Health monitoring
 
 ```ts
-import { ResilienceHealth } from 'resily';
+import { ResilienceHealth } from 'node-resily';
 
 const health = new ResilienceHealth();
 

@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Changed
+
+- NPM package name from `resily` / `node-resil` to `node-resily` (install and import `node-resily`).
+
 ## [0.1.0] - 2026-05-13
 
 ### Added

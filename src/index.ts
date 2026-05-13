@@ -1,5 +1,5 @@
 /**
- * resily — circuit breaker, retry, timeout, bulkhead with pluggable strategies.
+ * node-resily — circuit breaker, retry, timeout, bulkhead with pluggable strategies.
  * @packageDocumentation
  */
 

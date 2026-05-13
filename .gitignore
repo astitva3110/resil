@@ -52,7 +52,6 @@ Thumbs.db
 # TypeScript
 *.tsbuildinfo
 
-# Package managers
-package-lock.json
+# Package managers (lockfile is tracked for CI `npm ci`)
 yarn.lock
 pnpm-lock.yaml

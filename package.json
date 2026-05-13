@@ -35,11 +35,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/astitva3110/resil.git"
+    "url": "https://github.com/astitva3110/node-resily.git"
   },
-  "homepage": "https://github.com/astitva3110/resil#readme",
+  "homepage": "https://github.com/astitva3110/node-resily#readme",
   "bugs": {
-    "url": "https://github.com/astitva3110/resil/issues"
+    "url": "https://github.com/astitva3110/node-resily/issues"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",

@@ -4,9 +4,9 @@
 
 [![npm version](https://img.shields.io/npm/v/node-resily.svg)](https://www.npmjs.com/package/node-resily)
 [![npm downloads](https://img.shields.io/npm/dm/node-resily.svg)](https://www.npmjs.com/package/node-resily)
-[![CI](https://github.com/astitva3110/resil/workflows/CI/badge.svg)](https://github.com/astitva3110/resil/actions)
-[![coverage](https://img.shields.io/badge/coverage-threshold_≥90%25-2ea44f)](https://github.com/astitva3110/resil/blob/main/jest.config.ts)
-[![license](https://img.shields.io/npm/l/node-resily.svg)](https://github.com/astitva3110/resil/blob/main/package.json)
+[![CI](https://github.com/astitva3110/node-resily/workflows/CI/badge.svg)](https://github.com/astitva3110/node-resily/actions)
+[![coverage](https://img.shields.io/badge/coverage-threshold_≥90%25-2ea44f)](https://github.com/astitva3110/node-resily/blob/main/jest.config.ts)
+[![license](https://img.shields.io/npm/l/node-resily.svg)](https://github.com/astitva3110/node-resily/blob/main/package.json)
 
 ## The problem
 
@@ -366,7 +366,7 @@ Additional tuning (rolling window used by stats and error-rate breaking): `windo
 
 ## Contributing
 
-Issues and PRs are welcome on [github.com/astitva3110/resil](https://github.com/astitva3110/resil).
+Issues and PRs are welcome on [github.com/astitva3110/node-resily](https://github.com/astitva3110/node-resily).
 
 ## License
  
